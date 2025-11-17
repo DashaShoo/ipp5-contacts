@@ -23,9 +23,10 @@ const contactsRouter = require('./routes/contacts');
 app.use('/api/contacts', contactsRouter);
 
 // Страница index.html
-app.get('*', (req, res) => {
+app.get('/(.*)', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/index.html'));
 });
+
 
 // Запуск
 const PORT = process.env.PORT || 3000;
